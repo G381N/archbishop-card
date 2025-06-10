@@ -270,36 +270,36 @@ END:VCARD`;
           ))}
         </div>
 
-        <div className="relative z-10 flex items-center justify-center min-h-screen p-4">
+        <div className="relative z-10 flex items-center justify-center min-h-screen p-1 md:p-3">
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="w-full max-w-5xl"
+            className="w-full max-w-3xl"
           >
             {/* Main Card */}
             <motion.div
               variants={cardVariants}
-              className={`backdrop-blur-xl rounded-3xl shadow-2xl border overflow-hidden relative transition-all duration-500 ${
+              className={`backdrop-blur-xl rounded-xl md:rounded-2xl shadow-2xl border overflow-hidden relative transition-all duration-500 ${
                 isDarkMode 
                   ? 'bg-gray-800/90 border-gray-600/50' 
                   : 'bg-white/90 border-sky-200/50'
               }`}
               style={{
                 boxShadow: isDarkMode 
-                  ? "0 25px 50px -12px rgba(139, 92, 246, 0.25), 0 0 0 1px rgba(139, 92, 246, 0.05), 0 0 30px rgba(139, 92, 246, 0.1)"
-                  : "0 25px 50px -12px rgba(56, 189, 248, 0.25), 0 0 0 1px rgba(56, 189, 248, 0.05), 0 0 30px rgba(56, 189, 248, 0.1)"
+                  ? "0 15px 30px -9px rgba(139, 92, 246, 0.25), 0 0 0 1px rgba(139, 92, 246, 0.05), 0 0 20px rgba(139, 92, 246, 0.1)"
+                  : "0 15px 30px -9px rgba(56, 189, 248, 0.25), 0 0 0 1px rgba(56, 189, 248, 0.05), 0 0 20px rgba(56, 189, 248, 0.1)"
               }}
               whileHover={{ 
-                y: -10,
+                y: -6,
                 boxShadow: isDarkMode 
-                  ? "0 35px 60px -12px rgba(139, 92, 246, 0.35), 0 0 0 1px rgba(139, 92, 246, 0.1), 0 0 50px rgba(139, 92, 246, 0.2)"
-                  : "0 35px 60px -12px rgba(56, 189, 248, 0.35), 0 0 0 1px rgba(56, 189, 248, 0.1), 0 0 50px rgba(56, 189, 248, 0.2)"
+                  ? "0 22px 40px -9px rgba(139, 92, 246, 0.35), 0 0 0 1px rgba(139, 92, 246, 0.1), 0 0 30px rgba(139, 92, 246, 0.2)"
+                  : "0 22px 40px -9px rgba(56, 189, 248, 0.35), 0 0 0 1px rgba(56, 189, 248, 0.1), 0 0 30px rgba(56, 189, 248, 0.2)"
               }}
               transition={{ duration: 0.4, ease: "easeOut" }}
             >
               {/* Glow overlay */}
-              <div className={`absolute inset-0 backdrop-blur-sm rounded-3xl ${
+              <div className={`absolute inset-0 backdrop-blur-sm rounded-xl md:rounded-2xl ${
                 isDarkMode 
                   ? 'bg-gradient-to-br from-gray-800/80 via-gray-700/60 to-gray-800/80' 
                   : 'bg-gradient-to-br from-sky-50/80 via-white/60 to-blue-50/80'
@@ -307,11 +307,11 @@ END:VCARD`;
               
               {/* Logo Circle Area */}
               <motion.div 
-                className="relative z-10 flex justify-center pt-8 mb-4"
+                className="relative z-10 flex justify-center pt-3 md:pt-4 mb-2"
                 variants={itemVariants}
               >
                 <motion.div 
-                  className={`w-24 h-24 md:w-32 md:h-32 rounded-full border-4 flex items-center justify-center shadow-lg transition-all duration-500 ${
+                  className={`w-12 h-12 md:w-15 md:h-15 rounded-full border-2 flex items-center justify-center shadow-lg transition-all duration-500 ${
                     isDarkMode 
                       ? 'bg-gradient-to-br from-gray-700 to-gray-600 border-purple-500/50' 
                       : 'bg-gradient-to-br from-sky-100 to-blue-100 border-sky-200/50'
@@ -319,19 +319,19 @@ END:VCARD`;
                   animate={{
                     boxShadow: isDarkMode 
                       ? [
-                          "0 0 20px rgba(139, 92, 246, 0.3)",
-                          "0 0 40px rgba(139, 92, 246, 0.5)",
-                          "0 0 20px rgba(139, 92, 246, 0.3)"
+                          "0 0 12px rgba(139, 92, 246, 0.3)",
+                          "0 0 22px rgba(139, 92, 246, 0.5)",
+                          "0 0 12px rgba(139, 92, 246, 0.3)"
                         ]
                       : [
-                          "0 0 20px rgba(56, 189, 248, 0.3)",
-                          "0 0 40px rgba(56, 189, 248, 0.5)",
-                          "0 0 20px rgba(56, 189, 248, 0.3)"
+                          "0 0 12px rgba(56, 189, 248, 0.3)",
+                          "0 0 22px rgba(56, 189, 248, 0.5)",
+                          "0 0 12px rgba(56, 189, 248, 0.3)"
                         ]
                   }}
                   transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <span className={`text-sm font-medium ${
+                  <span className={`text-xs font-medium ${
                     isDarkMode ? 'text-purple-400' : 'text-sky-600'
                   }`}>LOGO</span>
                 </motion.div>
@@ -339,11 +339,11 @@ END:VCARD`;
 
               {/* Header Section */}
               <motion.div 
-                className="relative z-10 px-6 md:px-12 pb-8 text-center"
+                className="relative z-10 px-3 md:px-6 pb-3 md:pb-4 text-center"
                 variants={itemVariants}
               >
                 <motion.h2 
-                  className={`text-sm md:text-base font-medium mb-4 tracking-widest uppercase transition-colors duration-500 ${
+                  className={`text-xs md:text-sm font-medium mb-2 tracking-widest uppercase transition-colors duration-500 ${
                     isDarkMode ? 'text-purple-300' : 'text-sky-700'
                   }`}
                   style={{ fontFamily: 'var(--font-source-sans)' }}
@@ -353,7 +353,7 @@ END:VCARD`;
                 </motion.h2>
                 
                 <motion.h1 
-                  className={`text-3xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight transition-colors duration-500 ${
+                  className={`text-xl md:text-2xl lg:text-3xl font-bold mb-2 leading-tight transition-colors duration-500 ${
                     isDarkMode ? 'text-purple-100' : 'text-sky-900'
                   }`}
                   style={{ fontFamily: 'var(--font-crimson-text)' }}
@@ -363,7 +363,7 @@ END:VCARD`;
                 </motion.h1>
                 
                 <motion.p 
-                  className={`text-base md:text-lg mb-4 transition-colors duration-500 ${
+                  className={`text-sm md:text-base mb-2 transition-colors duration-500 ${
                     isDarkMode ? 'text-gray-300' : 'text-sky-700'
                   }`}
                   style={{ fontFamily: 'var(--font-source-sans)' }}
@@ -373,7 +373,7 @@ END:VCARD`;
                 </motion.p>
                 
                 <motion.p 
-                  className={`text-xl md:text-2xl font-semibold transition-colors duration-500 ${
+                  className={`text-base md:text-lg font-semibold transition-colors duration-500 ${
                     isDarkMode ? 'text-yellow-400' : 'text-amber-600'
                   }`}
                   style={{ fontFamily: 'var(--font-crimson-text)' }}
@@ -381,14 +381,14 @@ END:VCARD`;
                   animate={{
                     textShadow: isDarkMode 
                       ? [
-                          "0 0 10px rgba(251, 191, 36, 0.3)",
-                          "0 0 20px rgba(251, 191, 36, 0.5)",
-                          "0 0 10px rgba(251, 191, 36, 0.3)"
+                          "0 0 6px rgba(251, 191, 36, 0.3)",
+                          "0 0 12px rgba(251, 191, 36, 0.5)",
+                          "0 0 6px rgba(251, 191, 36, 0.3)"
                         ]
                       : [
-                          "0 0 10px rgba(245, 158, 11, 0.3)",
-                          "0 0 20px rgba(245, 158, 11, 0.5)",
-                          "0 0 10px rgba(245, 158, 11, 0.3)"
+                          "0 0 6px rgba(245, 158, 11, 0.3)",
+                          "0 0 12px rgba(245, 158, 11, 0.5)",
+                          "0 0 6px rgba(245, 158, 11, 0.3)"
                         ]
                   }}
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
@@ -397,16 +397,160 @@ END:VCARD`;
                 </motion.p>
               </motion.div>
 
+              {/* Mobile: Action Buttons First */}
+              <div className="block md:hidden">
+                <motion.div 
+                  className="relative z-10 px-3 pb-3"
+                  variants={itemVariants}
+                >
+                  <div className="grid grid-cols-1 gap-2 mb-3">
+                    <motion.button
+                      onClick={addToContacts}
+                      className={`group relative overflow-hidden text-white py-2 px-4 rounded-lg font-semibold text-sm shadow-lg hover:shadow-xl transition-all duration-300 ${
+                        isDarkMode 
+                          ? 'bg-gradient-to-r from-purple-500 to-violet-600 hover:from-purple-400 hover:to-violet-500' 
+                          : 'bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-400 hover:to-indigo-500'
+                      }`}
+                      style={{ fontFamily: 'var(--font-source-sans)' }}
+                      whileHover={{ 
+                        scale: 1.02, 
+                        y: -2,
+                        boxShadow: isDarkMode 
+                          ? "0 12px 16px -4px rgba(139, 92, 246, 0.4)"
+                          : "0 12px 16px -4px rgba(59, 130, 246, 0.4)"
+                      }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <div className="relative z-10 flex items-center justify-center">
+                        <UserPlus className="w-4 h-4 mr-2" />
+                        Add to Contacts
+                      </div>
+                      <div className="absolute inset-0 bg-shimmer bg-[length:200%_100%] opacity-0 group-hover:opacity-100 group-hover:animate-shimmer transition-opacity" />
+                    </motion.button>
+
+                    <motion.button
+                      onClick={() => setIsQRModalOpen(true)}
+                      className={`group relative overflow-hidden text-white py-2 px-4 rounded-lg font-semibold text-sm shadow-lg hover:shadow-xl transition-all duration-300 ${
+                        isDarkMode 
+                          ? 'bg-gradient-to-r from-violet-500 to-purple-600 hover:from-violet-400 hover:to-purple-500' 
+                          : 'bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400'
+                      }`}
+                      style={{ fontFamily: 'var(--font-source-sans)' }}
+                      whileHover={{ 
+                        scale: 1.02, 
+                        y: -2,
+                        boxShadow: isDarkMode 
+                          ? "0 12px 16px -4px rgba(139, 92, 246, 0.4)"
+                          : "0 12px 16px -4px rgba(6, 182, 212, 0.4)"
+                      }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <div className="relative z-10 flex items-center justify-center">
+                        <QrCode className="w-4 h-4 mr-2" />
+                        View QR Code
+                      </div>
+                      <div className="absolute inset-0 bg-shimmer bg-[length:200%_100%] opacity-0 group-hover:opacity-100 group-hover:animate-shimmer transition-opacity" />
+                    </motion.button>
+                  </div>
+
+                  {/* Mobile Share Section */}
+                  <motion.div 
+                    className={`backdrop-blur-sm rounded-lg p-3 border transition-all duration-500 ${
+                      isDarkMode 
+                        ? 'bg-gray-700/40 border-gray-600/50' 
+                        : 'bg-sky-50/40 border-sky-200/50'
+                    }`}
+                    variants={itemVariants}
+                  >
+                    <h3 className={`text-base font-bold mb-2 text-center transition-colors duration-500 ${
+                      isDarkMode ? 'text-purple-100' : 'text-sky-900'
+                    }`} style={{ fontFamily: 'var(--font-crimson-text)' }}>Share This Card</h3>
+                    
+                    {/* Phone Number Input */}
+                    <div className="mb-2">
+                      <input
+                        type="tel"
+                        value={phoneNumber}
+                        onChange={(e) => setPhoneNumber(e.target.value)}
+                        placeholder="+1234567890"
+                        className={`w-full px-2 py-2 border rounded-lg focus:ring-2 focus:border-transparent outline-none transition-all backdrop-blur-sm text-sm ${
+                          isDarkMode 
+                            ? 'bg-gray-600/60 border-gray-500/60 focus:ring-purple-400 text-white placeholder-gray-400' 
+                            : 'bg-white/60 border-sky-200/60 focus:ring-sky-400 text-sky-900 placeholder-sky-500'
+                        }`}
+                      />
+                    </div>
+
+                    {/* Share Buttons */}
+                    <div className="grid grid-cols-2 gap-2">
+                      <motion.button
+                        onClick={shareViaWhatsApp}
+                        className="flex flex-col items-center justify-center py-2 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
+                        whileHover={{ scale: 1.05, y: -2 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <MessageCircle className="w-4 h-4 mb-1" />
+                        <span className="text-xs font-medium" style={{ fontFamily: 'var(--font-source-sans)' }}>WhatsApp</span>
+                      </motion.button>
+
+                      <motion.button
+                        onClick={shareViaSMS}
+                        className="flex flex-col items-center justify-center py-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
+                        whileHover={{ scale: 1.05, y: -2 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <Phone className="w-4 h-4 mb-1" />
+                        <span className="text-xs font-medium" style={{ fontFamily: 'var(--font-source-sans)' }}>SMS</span>
+                      </motion.button>
+
+                      <motion.button
+                        onClick={shareViaInstagram}
+                        className="flex flex-col items-center justify-center py-2 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
+                        whileHover={{ scale: 1.05, y: -2 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <Instagram className="w-4 h-4 mb-1" />
+                        <span className="text-xs font-medium" style={{ fontFamily: 'var(--font-source-sans)' }}>Instagram</span>
+                      </motion.button>
+
+                      <motion.button
+                        onClick={copyLink}
+                        className="flex flex-col items-center justify-center py-2 bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 text-white rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
+                        whileHover={{ scale: 1.05, y: -2 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <Copy className="w-4 h-4 mb-1" />
+                        <span className="text-xs font-medium" style={{ fontFamily: 'var(--font-source-sans)' }}>Copy Link</span>
+                      </motion.button>
+                    </div>
+
+                    {/* Copy Message */}
+                    <AnimatePresence>
+                      {copyMessage && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                          className="mt-2 p-2 bg-emerald-100 border border-emerald-300 text-emerald-700 rounded-lg text-center font-medium text-sm"
+                        >
+                          {copyMessage}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.div>
+                </motion.div>
+              </div>
+
               {/* Office Information */}
               <motion.div 
-                className="relative z-10 px-6 md:px-12 py-8"
+                className="relative z-10 px-3 md:px-6 py-3 md:py-4"
                 variants={itemVariants}
               >
-                <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                   
                   {/* India Office */}
                   <motion.div 
-                    className={`group backdrop-blur-sm rounded-2xl p-6 border transition-all duration-500 ${
+                    className={`group backdrop-blur-sm rounded-lg p-3 md:p-4 border transition-all duration-500 ${
                       isDarkMode 
                         ? 'bg-gray-700/60 border-gray-600/50 hover:bg-gray-700/80' 
                         : 'bg-sky-50/60 border-sky-200/50 hover:bg-sky-50/80'
@@ -414,41 +558,41 @@ END:VCARD`;
                     variants={itemVariants}
                     whileHover={{ 
                       scale: 1.02,
-                      y: -5,
+                      y: -3,
                       boxShadow: isDarkMode 
-                        ? "0 20px 25px -5px rgba(139, 92, 246, 0.15)"
-                        : "0 20px 25px -5px rgba(56, 189, 248, 0.15)"
+                        ? "0 12px 16px -4px rgba(139, 92, 246, 0.15)"
+                        : "0 12px 16px -4px rgba(56, 189, 248, 0.15)"
                     }}
                   >
-                    <div className="flex items-center mb-6">
-                      <div className={`w-12 h-12 rounded-full flex items-center justify-center mr-4 shadow-lg ${
+                    <div className="flex items-center mb-3">
+                      <div className={`w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center mr-2 shadow-lg ${
                         isDarkMode 
                           ? 'bg-gradient-to-r from-purple-500 to-violet-600' 
                           : 'bg-gradient-to-r from-sky-500 to-blue-600'
                       }`}>
-                        <Globe className="w-6 h-6 text-white" />
+                        <Globe className="w-3 h-3 md:w-4 md:h-4 text-white" />
                       </div>
-                      <h3 className={`text-xl font-bold transition-colors duration-500 ${
+                      <h3 className={`text-base md:text-lg font-bold transition-colors duration-500 ${
                         isDarkMode ? 'text-purple-100' : 'text-sky-900'
                       }`} style={{ fontFamily: 'var(--font-crimson-text)' }}>
                         {cardData.indiaOffice.title}
                       </h3>
                     </div>
                     
-                    <div className="space-y-4">
+                    <div className="space-y-2">
                       <div>
-                        <p className={`text-lg font-semibold mb-2 transition-colors duration-500 ${
+                        <p className={`text-sm md:text-base font-semibold mb-1 transition-colors duration-500 ${
                           isDarkMode ? 'text-purple-200' : 'text-sky-800'
                         }`} style={{ fontFamily: 'var(--font-crimson-text)' }}>
                           {cardData.indiaOffice.cathedral}
                         </p>
-                        <p className={`mb-4 transition-colors duration-500 ${
+                        <p className={`mb-2 text-xs md:text-sm transition-colors duration-500 ${
                           isDarkMode ? 'text-gray-300' : 'text-sky-700'
                         }`} style={{ fontFamily: 'var(--font-source-sans)' }}>{cardData.indiaOffice.address}</p>
                         
                         <motion.button
                           onClick={() => openGoogleMaps(`${cardData.indiaOffice.cathedral}, ${cardData.indiaOffice.address}`)}
-                          className={`flex items-center font-medium group/btn transition-colors ${
+                          className={`flex items-center font-medium group/btn transition-colors text-xs ${
                             isDarkMode 
                               ? 'text-purple-400 hover:text-purple-300' 
                               : 'text-sky-600 hover:text-sky-700'
@@ -456,103 +600,81 @@ END:VCARD`;
                           whileHover={{ x: 5 }}
                           whileTap={{ scale: 0.95 }}
                         >
-                          <MapPin className="w-4 h-4 mr-2" />
+                          <MapPin className="w-3 h-3 mr-1" />
                           Open in Google Maps
-                          <ExternalLink className="w-4 h-4 ml-2 opacity-0 group-hover/btn:opacity-100 transition-opacity" />
+                          <ExternalLink className="w-3 h-3 ml-1 opacity-0 group-hover/btn:opacity-100 transition-opacity" />
                         </motion.button>
                       </div>
 
                       <motion.div 
-                        className={`flex items-center cursor-pointer p-3 rounded-xl transition-colors ${
+                        className={`flex items-center cursor-pointer p-2 rounded-lg transition-colors ${
                           isDarkMode 
                             ? 'hover:bg-gray-600/50' 
-                            : 'hover:bg-sky-100/50'
+                            : 'hover:bg-blue-100/50'
                         }`}
                         onClick={() => window.open(`tel:${cardData.indiaOffice.phone}`)}
                         whileHover={{ x: 5 }}
                         whileTap={{ scale: 0.95 }}
                       >
-                        <div className={`w-10 h-10 rounded-full flex items-center justify-center mr-3 shadow-md ${
+                        <div className={`w-6 h-6 rounded-full flex items-center justify-center mr-2 shadow-md ${
                           isDarkMode 
                             ? 'bg-gradient-to-r from-purple-500 to-violet-600' 
                             : 'bg-gradient-to-r from-sky-500 to-blue-600'
                         }`}>
-                          <Phone className="w-5 h-5 text-white" />
+                          <Phone className="w-3 h-3 text-white" />
                         </div>
-                        <span className={`font-medium text-lg transition-colors duration-500 ${
+                        <span className={`font-medium text-xs md:text-sm transition-colors duration-500 ${
                           isDarkMode ? 'text-purple-100' : 'text-sky-900'
                         }`} style={{ fontFamily: 'var(--font-source-sans)' }}>{cardData.indiaOffice.phone}</span>
                       </motion.div>
-
-                      <motion.div 
-                        className={`flex items-center cursor-pointer p-3 rounded-xl transition-colors ${
-                          isDarkMode 
-                            ? 'hover:bg-gray-600/50' 
-                            : 'hover:bg-sky-100/50'
-                        }`}
-                        onClick={() => window.open(`mailto:${cardData.indiaOffice.email}`)}
-                        whileHover={{ x: 5 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        <div className={`w-10 h-10 rounded-full flex items-center justify-center mr-3 shadow-md ${
-                          isDarkMode 
-                            ? 'bg-gradient-to-r from-purple-500 to-violet-600' 
-                            : 'bg-gradient-to-r from-sky-500 to-blue-600'
-                        }`}>
-                          <Mail className="w-5 h-5 text-white" />
-                        </div>
-                        <span className={`font-medium text-lg transition-colors duration-500 ${
-                          isDarkMode ? 'text-purple-100' : 'text-sky-900'
-                        }`} style={{ fontFamily: 'var(--font-source-sans)' }}>{cardData.indiaOffice.email}</span>
-                      </motion.div>
                     </div>
                   </motion.div>
-
+                  
                   {/* USA Office */}
                   <motion.div 
-                    className={`group backdrop-blur-sm rounded-2xl p-6 border transition-all duration-500 ${
+                    className={`group backdrop-blur-sm rounded-lg p-3 md:p-4 border transition-all duration-500 ${
                       isDarkMode 
                         ? 'bg-gray-700/60 border-gray-600/50 hover:bg-gray-700/80' 
-                        : 'bg-blue-50/60 border-blue-200/50 hover:bg-blue-50/80'
+                        : 'bg-sky-50/60 border-sky-200/50 hover:bg-sky-50/80'
                     }`}
                     variants={itemVariants}
                     whileHover={{ 
                       scale: 1.02,
-                      y: -5,
+                      y: -3,
                       boxShadow: isDarkMode 
-                        ? "0 20px 25px -5px rgba(139, 92, 246, 0.15)"
-                        : "0 20px 25px -5px rgba(59, 130, 246, 0.15)"
+                        ? "0 12px 16px -4px rgba(139, 92, 246, 0.15)"
+                        : "0 12px 16px -4px rgba(56, 189, 248, 0.15)"
                     }}
                   >
-                    <div className="flex items-center mb-6">
-                      <div className={`w-12 h-12 rounded-full flex items-center justify-center mr-4 shadow-lg ${
+                    <div className="flex items-center mb-3">
+                      <div className={`w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center mr-2 shadow-lg ${
                         isDarkMode 
                           ? 'bg-gradient-to-r from-purple-500 to-violet-600' 
                           : 'bg-gradient-to-r from-sky-500 to-blue-600'
                       }`}>
-                        <Globe className="w-6 h-6 text-white" />
+                        <Globe className="w-3 h-3 md:w-4 md:h-4 text-white" />
                       </div>
-                      <h3 className={`text-xl font-bold transition-colors duration-500 ${
+                      <h3 className={`text-base md:text-lg font-bold transition-colors duration-500 ${
                         isDarkMode ? 'text-purple-100' : 'text-sky-900'
                       }`} style={{ fontFamily: 'var(--font-crimson-text)' }}>
                         {cardData.usaOffice.title}
                       </h3>
                     </div>
                     
-                    <div className="space-y-4">
+                    <div className="space-y-2">
                       <div>
-                        <p className={`text-lg font-semibold mb-2 transition-colors duration-500 ${
+                        <p className={`text-sm md:text-base font-semibold mb-1 transition-colors duration-500 ${
                           isDarkMode ? 'text-purple-200' : 'text-sky-800'
                         }`} style={{ fontFamily: 'var(--font-crimson-text)' }}>
                           {cardData.usaOffice.cathedral}
                         </p>
-                        <p className={`mb-4 transition-colors duration-500 ${
+                        <p className={`mb-2 text-xs md:text-sm transition-colors duration-500 ${
                           isDarkMode ? 'text-gray-300' : 'text-sky-700'
                         }`} style={{ fontFamily: 'var(--font-source-sans)' }}>{cardData.usaOffice.address}</p>
                         
                         <motion.button
                           onClick={() => openGoogleMaps(`${cardData.usaOffice.cathedral}, ${cardData.usaOffice.address}`)}
-                          className={`flex items-center font-medium group/btn transition-colors ${
+                          className={`flex items-center font-medium group/btn transition-colors text-xs ${
                             isDarkMode 
                               ? 'text-purple-400 hover:text-purple-300' 
                               : 'text-sky-600 hover:text-sky-700'
@@ -560,14 +682,14 @@ END:VCARD`;
                           whileHover={{ x: 5 }}
                           whileTap={{ scale: 0.95 }}
                         >
-                          <MapPin className="w-4 h-4 mr-2" />
+                          <MapPin className="w-3 h-3 mr-1" />
                           Open in Google Maps
-                          <ExternalLink className="w-4 h-4 ml-2 opacity-0 group-hover/btn:opacity-100 transition-opacity" />
+                          <ExternalLink className="w-3 h-3 ml-1 opacity-0 group-hover/btn:opacity-100 transition-opacity" />
                         </motion.button>
                       </div>
 
                       <motion.div 
-                        className={`flex items-center cursor-pointer p-3 rounded-xl transition-colors ${
+                        className={`flex items-center cursor-pointer p-2 rounded-lg transition-colors ${
                           isDarkMode 
                             ? 'hover:bg-gray-600/50' 
                             : 'hover:bg-blue-100/50'
@@ -576,14 +698,14 @@ END:VCARD`;
                         whileHover={{ x: 5 }}
                         whileTap={{ scale: 0.95 }}
                       >
-                        <div className={`w-10 h-10 rounded-full flex items-center justify-center mr-3 shadow-md ${
+                        <div className={`w-6 h-6 rounded-full flex items-center justify-center mr-2 shadow-md ${
                           isDarkMode 
                             ? 'bg-gradient-to-r from-purple-500 to-violet-600' 
                             : 'bg-gradient-to-r from-sky-500 to-blue-600'
                         }`}>
-                          <Phone className="w-5 h-5 text-white" />
+                          <Phone className="w-3 h-3 text-white" />
                         </div>
-                        <span className={`font-medium text-lg transition-colors duration-500 ${
+                        <span className={`font-medium text-xs md:text-sm transition-colors duration-500 ${
                           isDarkMode ? 'text-purple-100' : 'text-sky-900'
                         }`} style={{ fontFamily: 'var(--font-source-sans)' }}>{cardData.usaOffice.phone}</span>
                       </motion.div>
@@ -592,152 +714,154 @@ END:VCARD`;
                 </div>
               </motion.div>
 
-              {/* Action Buttons */}
-              <motion.div 
-                className="relative z-10 px-6 md:px-12 pb-8"
-                variants={itemVariants}
-              >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                  <motion.button
-                    onClick={addToContacts}
-                    className={`group relative overflow-hidden text-white py-4 px-6 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 ${
-                      isDarkMode 
-                        ? 'bg-gradient-to-r from-purple-500 to-violet-600 hover:from-purple-400 hover:to-violet-500' 
-                        : 'bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-400 hover:to-indigo-500'
-                    }`}
-                    style={{ fontFamily: 'var(--font-source-sans)' }}
-                    whileHover={{ 
-                      scale: 1.02, 
-                      y: -2,
-                      boxShadow: isDarkMode 
-                        ? "0 20px 25px -5px rgba(139, 92, 246, 0.4)"
-                        : "0 20px 25px -5px rgba(59, 130, 246, 0.4)"
-                    }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <div className="relative z-10 flex items-center justify-center">
-                      <UserPlus className="w-6 h-6 mr-3" />
-                      Add to Contacts
-                    </div>
-                    <div className="absolute inset-0 bg-shimmer bg-[length:200%_100%] opacity-0 group-hover:opacity-100 group-hover:animate-shimmer transition-opacity" />
-                  </motion.button>
-
-                  <motion.button
-                    onClick={() => setIsQRModalOpen(true)}
-                    className={`group relative overflow-hidden text-white py-4 px-6 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 ${
-                      isDarkMode 
-                        ? 'bg-gradient-to-r from-violet-500 to-purple-600 hover:from-violet-400 hover:to-purple-500' 
-                        : 'bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400'
-                    }`}
-                    style={{ fontFamily: 'var(--font-source-sans)' }}
-                    whileHover={{ 
-                      scale: 1.02, 
-                      y: -2,
-                      boxShadow: isDarkMode 
-                        ? "0 20px 25px -5px rgba(139, 92, 246, 0.4)"
-                        : "0 20px 25px -5px rgba(6, 182, 212, 0.4)"
-                    }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <div className="relative z-10 flex items-center justify-center">
-                      <QrCode className="w-6 h-6 mr-3" />
-                      View QR Code
-                    </div>
-                    <div className="absolute inset-0 bg-shimmer bg-[length:200%_100%] opacity-0 group-hover:opacity-100 group-hover:animate-shimmer transition-opacity" />
-                  </motion.button>
-                </div>
-
-                {/* Share Section */}
+              {/* Desktop: Action Buttons */}
+              <div className="hidden md:block">
                 <motion.div 
-                  className={`backdrop-blur-sm rounded-2xl p-6 border transition-all duration-500 ${
-                    isDarkMode 
-                      ? 'bg-gray-700/40 border-gray-600/50' 
-                      : 'bg-sky-50/40 border-sky-200/50'
-                  }`}
+                  className="relative z-10 px-6 pb-4"
                   variants={itemVariants}
                 >
-                  <h3 className={`text-2xl font-bold mb-6 text-center transition-colors duration-500 ${
-                    isDarkMode ? 'text-purple-100' : 'text-sky-900'
-                  }`} style={{ fontFamily: 'var(--font-crimson-text)' }}>Share This Card</h3>
-                  
-                  {/* Phone Number Input */}
-                  <div className="mb-6">
-                    <label className={`block text-sm font-medium mb-2 transition-colors duration-500 ${
-                      isDarkMode ? 'text-purple-300' : 'text-sky-700'
-                    }`}>
-                      Mobile Number (optional for WhatsApp/SMS)
-                    </label>
-                    <input
-                      type="tel"
-                      value={phoneNumber}
-                      onChange={(e) => setPhoneNumber(e.target.value)}
-                      placeholder="+1234567890"
-                      className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:border-transparent outline-none transition-all backdrop-blur-sm ${
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <motion.button
+                      onClick={addToContacts}
+                      className={`group relative overflow-hidden text-white py-2 px-4 rounded-lg font-semibold text-sm shadow-lg hover:shadow-xl transition-all duration-300 ${
                         isDarkMode 
-                          ? 'bg-gray-600/60 border-gray-500/60 focus:ring-purple-400 text-white placeholder-gray-400' 
-                          : 'bg-white/60 border-sky-200/60 focus:ring-sky-400 text-sky-900 placeholder-sky-500'
+                          ? 'bg-gradient-to-r from-purple-500 to-violet-600 hover:from-purple-400 hover:to-violet-500' 
+                          : 'bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-400 hover:to-indigo-500'
                       }`}
-                    />
-                  </div>
-
-                  {/* Share Buttons - Original brand colors */}
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <motion.button
-                      onClick={shareViaWhatsApp}
-                      className="group flex flex-col items-center justify-center py-4 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white rounded-xl transition-all duration-300 shadow-md hover:shadow-lg"
-                      whileHover={{ scale: 1.05, y: -2 }}
-                      whileTap={{ scale: 0.95 }}
+                      style={{ fontFamily: 'var(--font-source-sans)' }}
+                      whileHover={{ 
+                        scale: 1.02, 
+                        y: -2,
+                        boxShadow: isDarkMode 
+                          ? "0 12px 16px -4px rgba(139, 92, 246, 0.4)"
+                          : "0 12px 16px -4px rgba(59, 130, 246, 0.4)"
+                      }}
+                      whileTap={{ scale: 0.98 }}
                     >
-                      <MessageCircle className="w-6 h-6 mb-2 group-hover:animate-bounce-gentle" />
-                      <span className="text-sm font-medium" style={{ fontFamily: 'var(--font-source-sans)' }}>WhatsApp</span>
+                      <div className="relative z-10 flex items-center justify-center">
+                        <UserPlus className="w-4 h-4 mr-2" />
+                        Add to Contacts
+                      </div>
+                      <div className="absolute inset-0 bg-shimmer bg-[length:200%_100%] opacity-0 group-hover:opacity-100 group-hover:animate-shimmer transition-opacity" />
                     </motion.button>
 
                     <motion.button
-                      onClick={shareViaSMS}
-                      className="group flex flex-col items-center justify-center py-4 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-xl transition-all duration-300 shadow-md hover:shadow-lg"
-                      whileHover={{ scale: 1.05, y: -2 }}
-                      whileTap={{ scale: 0.95 }}
+                      onClick={() => setIsQRModalOpen(true)}
+                      className={`group relative overflow-hidden text-white py-2 px-4 rounded-lg font-semibold text-sm shadow-lg hover:shadow-xl transition-all duration-300 ${
+                        isDarkMode 
+                          ? 'bg-gradient-to-r from-violet-500 to-purple-600 hover:from-violet-400 hover:to-purple-500' 
+                          : 'bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400'
+                      }`}
+                      style={{ fontFamily: 'var(--font-source-sans)' }}
+                      whileHover={{ 
+                        scale: 1.02, 
+                        y: -2,
+                        boxShadow: isDarkMode 
+                          ? "0 12px 16px -4px rgba(139, 92, 246, 0.4)"
+                          : "0 12px 16px -4px rgba(6, 182, 212, 0.4)"
+                      }}
+                      whileTap={{ scale: 0.98 }}
                     >
-                      <Phone className="w-6 h-6 mb-2 group-hover:animate-bounce-gentle" />
-                      <span className="text-sm font-medium" style={{ fontFamily: 'var(--font-source-sans)' }}>SMS</span>
-                    </motion.button>
-
-                    <motion.button
-                      onClick={shareViaInstagram}
-                      className="group flex flex-col items-center justify-center py-4 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white rounded-xl transition-all duration-300 shadow-md hover:shadow-lg"
-                      whileHover={{ scale: 1.05, y: -2 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <Instagram className="w-6 h-6 mb-2 group-hover:animate-bounce-gentle" />
-                      <span className="text-sm font-medium" style={{ fontFamily: 'var(--font-source-sans)' }}>Instagram</span>
-                    </motion.button>
-
-                    <motion.button
-                      onClick={copyLink}
-                      className="group flex flex-col items-center justify-center py-4 bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 text-white rounded-xl transition-all duration-300 shadow-md hover:shadow-lg"
-                      whileHover={{ scale: 1.05, y: -2 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <Copy className="w-6 h-6 mb-2 group-hover:animate-bounce-gentle" />
-                      <span className="text-sm font-medium" style={{ fontFamily: 'var(--font-source-sans)' }}>Copy Link</span>
+                      <div className="relative z-10 flex items-center justify-center">
+                        <QrCode className="w-4 h-4 mr-2" />
+                        View QR Code
+                      </div>
+                      <div className="absolute inset-0 bg-shimmer bg-[length:200%_100%] opacity-0 group-hover:opacity-100 group-hover:animate-shimmer transition-opacity" />
                     </motion.button>
                   </div>
 
-                  {/* Copy Message */}
-                  <AnimatePresence>
-                    {copyMessage && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                        className="mt-6 p-4 bg-emerald-100 border border-emerald-300 text-emerald-700 rounded-xl text-center font-medium"
+                  {/* Desktop Share Section */}
+                  <motion.div 
+                    className={`backdrop-blur-sm rounded-lg p-4 border transition-all duration-500 ${
+                      isDarkMode 
+                        ? 'bg-gray-700/40 border-gray-600/50' 
+                        : 'bg-sky-50/40 border-sky-200/50'
+                    }`}
+                    variants={itemVariants}
+                  >
+                    <h3 className={`text-lg font-bold mb-4 text-center transition-colors duration-500 ${
+                      isDarkMode ? 'text-purple-100' : 'text-sky-900'
+                    }`} style={{ fontFamily: 'var(--font-crimson-text)' }}>Share This Card</h3>
+                    
+                    {/* Phone Number Input */}
+                    <div className="mb-4">
+                      <label className={`block text-sm font-medium mb-2 transition-colors duration-500 ${
+                        isDarkMode ? 'text-purple-300' : 'text-sky-700'
+                      }`}>
+                        Mobile Number (optional for WhatsApp/SMS)
+                      </label>
+                      <input
+                        type="tel"
+                        value={phoneNumber}
+                        onChange={(e) => setPhoneNumber(e.target.value)}
+                        placeholder="+1234567890"
+                        className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:border-transparent outline-none transition-all backdrop-blur-sm ${
+                          isDarkMode 
+                            ? 'bg-gray-600/60 border-gray-500/60 focus:ring-purple-400 text-white placeholder-gray-400' 
+                            : 'bg-white/60 border-sky-200/60 focus:ring-sky-400 text-sky-900 placeholder-sky-500'
+                        }`}
+                      />
+                    </div>
+
+                    {/* Share Buttons */}
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+                      <motion.button
+                        onClick={shareViaWhatsApp}
+                        className="group flex flex-col items-center justify-center py-2 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
+                        whileHover={{ scale: 1.05, y: -2 }}
+                        whileTap={{ scale: 0.95 }}
                       >
-                        {copyMessage}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                        <MessageCircle className="w-4 h-4 mb-1 group-hover:animate-bounce-gentle" />
+                        <span className="text-xs font-medium" style={{ fontFamily: 'var(--font-source-sans)' }}>WhatsApp</span>
+                      </motion.button>
+
+                      <motion.button
+                        onClick={shareViaSMS}
+                        className="group flex flex-col items-center justify-center py-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
+                        whileHover={{ scale: 1.05, y: -2 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <Phone className="w-4 h-4 mb-1 group-hover:animate-bounce-gentle" />
+                        <span className="text-xs font-medium" style={{ fontFamily: 'var(--font-source-sans)' }}>SMS</span>
+                      </motion.button>
+
+                      <motion.button
+                        onClick={shareViaInstagram}
+                        className="group flex flex-col items-center justify-center py-2 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
+                        whileHover={{ scale: 1.05, y: -2 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <Instagram className="w-4 h-4 mb-1 group-hover:animate-bounce-gentle" />
+                        <span className="text-xs font-medium" style={{ fontFamily: 'var(--font-source-sans)' }}>Instagram</span>
+                      </motion.button>
+
+                      <motion.button
+                        onClick={copyLink}
+                        className="group flex flex-col items-center justify-center py-2 bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 text-white rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
+                        whileHover={{ scale: 1.05, y: -2 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <Copy className="w-4 h-4 mb-1 group-hover:animate-bounce-gentle" />
+                        <span className="text-xs font-medium" style={{ fontFamily: 'var(--font-source-sans)' }}>Copy Link</span>
+                      </motion.button>
+                    </div>
+
+                    {/* Copy Message */}
+                    <AnimatePresence>
+                      {copyMessage && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                          className="mt-4 p-3 bg-emerald-100 border border-emerald-300 text-emerald-700 rounded-lg text-center font-medium"
+                        >
+                          {copyMessage}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.div>
                 </motion.div>
-              </motion.div>
+              </div>
             </motion.div>
           </motion.div>
         </div>
