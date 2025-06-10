@@ -1,26 +1,54 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --background: #fdf9f0;
+  --foreground: #2c1810;
+  --gold: #f6af09;
+  --gold-muted: rgba(246, 175, 9, 0.1);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #1a1a1a;
+    --foreground: #f5e7d2;
   }
 }
 
 body {
-  background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background);
+  font-family: 'Inter', sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .cross-decoration::before {
+    content: '††';
+    display: inline-block;
+    margin-right: 0.5rem;
+    color: var(--gold);
+    font-weight: bold;
+  }
+  
+  .holy-glow {
+    box-shadow: 0 0 20px rgba(246, 175, 9, 0.3);
+  }
+  
+  .stained-glass-border {
+    background: linear-gradient(45deg, #f6af09 0%, #d97706 25%, #f6af09 50%, #d97706 75%, #f6af09 100%);
+    background-size: 200% 200%;
+    animation: rainbow 3s ease infinite;
+  }
+  
+  @keyframes rainbow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
 }
