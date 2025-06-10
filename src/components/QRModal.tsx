@@ -168,7 +168,7 @@ const QRModal: React.FC<QRModalProps> = ({ isOpen, onClose, url }) => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4, duration: 0.5 }}
                 >
-                  Scan this QR code to share the Archbishop's digital business card instantly
+                  Scan this QR code to share the Archbishop&apos;s digital business card instantly
                 </motion.p>
 
                 {/* Download Button */}

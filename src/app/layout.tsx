@@ -1,72 +1,40 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Crimson_Text, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+// Google Fonts
+const crimsonText = Crimson_Text({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["400", "600", "700"],
+  variable: "--font-crimson-text",
 });
 
-const playfair = Playfair_Display({
+const sourceSans = Source_Sans_3({
   subsets: ["latin"],
-  variable: "--font-playfair",
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-source-sans",
 });
 
 export const metadata: Metadata = {
-  title: "✠ MAR ILIOS YOHANAN KURIAKOSE - Metropolitan Archbishop",
-  description: "Digital Business Card - Metropolitan Archbishop & Apostolic Nuncio of Asia",
-  keywords: "Archbishop, Metropolitan, Catholic, ECCC, India, Calicut, Kerala, Detroit, Michigan, Religious Leader",
-  authors: [{ name: "MAR ILIOS YOHANAN KURIAKOSE" }],
-  creator: "ECCLESIA CATHOLICA ECUMENICA CHRISTI (ECCC) – INDIA",
-  publisher: "ECCLESIA CATHOLICA ECUMENICA CHRISTI (ECCC) – INDIA",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  metadataBase: new URL('https://archbishop-card.vercel.app'),
+  title: "Archbishop MAR ILIOS YOHANAN KURIAKOSE - Digital Business Card",
+  description: "Official digital business card of Archbishop MAR ILIOS YOHANAN KURIAKOSE, featuring contact information for both India and USA offices.",
+  keywords: "Archbishop, MAR ILIOS YOHANAN KURIAKOSE, Saint Francis, Cathedral, Calicut, Detroit, digital business card",
+  authors: [{ name: "Archbishop MAR ILIOS YOHANAN KURIAKOSE" }],
   openGraph: {
-    title: "MAR ILIOS YOHANAN KURIAKOSE - Metropolitan Archbishop",
-    description: "Digital business card for MAR ILIOS YOHANAN KURIAKOSE, Metropolitan Archbishop & Apostolic Nuncio of Asia",
+    title: "Archbishop MAR ILIOS YOHANAN KURIAKOSE",
+    description: "Official digital business card",
     type: "profile",
-    locale: "en_US",
-    siteName: "Archbishop Digital Card",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "MAR ILIOS YOHANAN KURIAKOSE - Metropolitan Archbishop",
-    description: "Digital business card for MAR ILIOS YOHANAN KURIAKOSE, Metropolitan Archbishop & Apostolic Nuncio of Asia",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-  verification: {
-    google: 'your-google-verification-code',
   },
 };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="canonical" href="https://archbishop-card.vercel.app" />
-        <meta name="theme-color" content="#f6af09" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </head>
-      <body className={`${inter.variable} ${playfair.variable} antialiased`}>
+      <body className={`${crimsonText.variable} ${sourceSans.variable} antialiased`}>
         {children}
       </body>
     </html>

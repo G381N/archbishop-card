@@ -7,17 +7,12 @@ import {
   Phone, 
   MapPin, 
   UserPlus,
-  Share2,
   ExternalLink,
   QrCode,
   MessageCircle,
   Copy,
   Instagram,
-  Download,
-  Sparkles,
-  Globe,
-  Star,
-  Heart
+  Globe
 } from 'lucide-react';
 import QRModal from './QRModal';
 
@@ -27,9 +22,29 @@ const ArchbishopCard = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [copyMessage, setCopyMessage] = useState('');
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+  const [particles, setParticles] = useState<Array<{left: number, top: number, size: string, color: string}>>([]);
 
   useEffect(() => {
+    setIsClient(true);
     setCurrentUrl(window.location.href);
+    
+    // Generate particles on client side only
+    const dustParticles = Array.from({ length: 25 }, () => ({
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      size: 'w-1 h-1',
+      color: 'bg-amber-300/80'
+    }));
+    
+    const smallParticles = Array.from({ length: 35 }, () => ({
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      size: 'w-0.5 h-0.5',
+      color: 'bg-yellow-200/60'
+    }));
+    
+    setParticles([...dustParticles, ...smallParticles]);
   }, []);
 
   const toggleDarkMode = () => {
@@ -153,11 +168,6 @@ END:VCARD`;
 
   return (
     <>
-      {/* Google Fonts */}
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet" />
-      
       {/* Modern gradient background with dark mode support */}
       <div className={`min-h-screen relative overflow-hidden transition-all duration-500 ${
         isDarkMode 
@@ -227,54 +237,34 @@ END:VCARD`;
             }}
           />
 
-          {/* Dust particles in sunlight effect */}
-          {[...Array(25)].map((_, i) => (
+          {/* Client-side only dust particles */}
+          {isClient && particles.map((particle, i) => (
             <motion.div
               key={i}
-              className={`absolute w-1 h-1 rounded-full ${
-                isDarkMode ? 'bg-purple-400/80' : 'bg-amber-300/80'
+              className={`absolute ${particle.size} rounded-full ${
+                isDarkMode 
+                  ? i < 25 ? 'bg-purple-400/80' : 'bg-blue-300/60'
+                  : particle.color
               }`}
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
+                left: `${particle.left}%`,
+                top: `${particle.top}%`,
               }}
               animate={{
-                y: [0, -20 - Math.random() * 30, -40 - Math.random() * 30],
-                x: [0, Math.random() * 20 - 10, Math.random() * 40 - 20],
+                y: i < 25 
+                  ? [0, -20 - Math.random() * 30, -40 - Math.random() * 30]
+                  : [0, -15 - Math.random() * 25],
+                x: i < 25 
+                  ? [0, Math.random() * 20 - 10, Math.random() * 40 - 20]
+                  : [0, Math.random() * 15 - 7.5],
                 opacity: [0, 0.8, 0.4, 0],
-                scale: [0, 1, 0.8, 0],
+                scale: [0, 1, i < 25 ? 0.8 : 0.5, 0],
               }}
               transition={{
-                duration: 3 + Math.random() * 2,
+                duration: i < 25 ? 3 + Math.random() * 2 : 4 + Math.random() * 3,
                 repeat: Infinity,
                 ease: "linear",
-                delay: Math.random() * 3
-              }}
-            />
-          ))}
-
-          {/* Additional smaller dust particles */}
-          {[...Array(35)].map((_, i) => (
-            <motion.div
-              key={`small-${i}`}
-              className={`absolute w-0.5 h-0.5 rounded-full ${
-                isDarkMode ? 'bg-blue-300/60' : 'bg-yellow-200/60'
-              }`}
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-              }}
-              animate={{
-                y: [0, -15 - Math.random() * 25],
-                x: [0, Math.random() * 15 - 7.5],
-                opacity: [0, 0.6, 0.3, 0],
-                scale: [0, 1, 0.5, 0],
-              }}
-              transition={{
-                duration: 4 + Math.random() * 3,
-                repeat: Infinity,
-                ease: "linear",
-                delay: Math.random() * 4
+                delay: Math.random() * (i < 25 ? 3 : 4)
               }}
             />
           ))}
@@ -356,7 +346,7 @@ END:VCARD`;
                   className={`text-sm md:text-base font-medium mb-4 tracking-widest uppercase transition-colors duration-500 ${
                     isDarkMode ? 'text-purple-300' : 'text-sky-700'
                   }`}
-                  style={{ fontFamily: "'Source Sans Pro', sans-serif" }}
+                  style={{ fontFamily: 'var(--font-source-sans)' }}
                   variants={itemVariants}
                 >
                   {cardData.organization}
@@ -366,7 +356,7 @@ END:VCARD`;
                   className={`text-3xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight transition-colors duration-500 ${
                     isDarkMode ? 'text-purple-100' : 'text-sky-900'
                   }`}
-                  style={{ fontFamily: "'Crimson Text', serif" }}
+                  style={{ fontFamily: 'var(--font-crimson-text)' }}
                   variants={itemVariants}
                 >
                   {cardData.name}
@@ -376,7 +366,7 @@ END:VCARD`;
                   className={`text-base md:text-lg mb-4 transition-colors duration-500 ${
                     isDarkMode ? 'text-gray-300' : 'text-sky-700'
                   }`}
-                  style={{ fontFamily: "'Source Sans Pro', sans-serif" }}
+                  style={{ fontFamily: 'var(--font-source-sans)' }}
                   variants={itemVariants}
                 >
                   {cardData.qualifications}
@@ -386,7 +376,7 @@ END:VCARD`;
                   className={`text-xl md:text-2xl font-semibold transition-colors duration-500 ${
                     isDarkMode ? 'text-yellow-400' : 'text-amber-600'
                   }`}
-                  style={{ fontFamily: "'Crimson Text', serif" }}
+                  style={{ fontFamily: 'var(--font-crimson-text)' }}
                   variants={itemVariants}
                   animate={{
                     textShadow: isDarkMode 
@@ -440,7 +430,7 @@ END:VCARD`;
                       </div>
                       <h3 className={`text-xl font-bold transition-colors duration-500 ${
                         isDarkMode ? 'text-purple-100' : 'text-sky-900'
-                      }`} style={{ fontFamily: "'Crimson Text', serif" }}>
+                      }`} style={{ fontFamily: 'var(--font-crimson-text)' }}>
                         {cardData.indiaOffice.title}
                       </h3>
                     </div>
@@ -449,12 +439,12 @@ END:VCARD`;
                       <div>
                         <p className={`text-lg font-semibold mb-2 transition-colors duration-500 ${
                           isDarkMode ? 'text-purple-200' : 'text-sky-800'
-                        }`} style={{ fontFamily: "'Crimson Text', serif" }}>
+                        }`} style={{ fontFamily: 'var(--font-crimson-text)' }}>
                           {cardData.indiaOffice.cathedral}
                         </p>
                         <p className={`mb-4 transition-colors duration-500 ${
                           isDarkMode ? 'text-gray-300' : 'text-sky-700'
-                        }`} style={{ fontFamily: "'Source Sans Pro', sans-serif" }}>{cardData.indiaOffice.address}</p>
+                        }`} style={{ fontFamily: 'var(--font-source-sans)' }}>{cardData.indiaOffice.address}</p>
                         
                         <motion.button
                           onClick={() => openGoogleMaps(`${cardData.indiaOffice.cathedral}, ${cardData.indiaOffice.address}`)}
@@ -491,7 +481,7 @@ END:VCARD`;
                         </div>
                         <span className={`font-medium text-lg transition-colors duration-500 ${
                           isDarkMode ? 'text-purple-100' : 'text-sky-900'
-                        }`} style={{ fontFamily: "'Source Sans Pro', sans-serif" }}>{cardData.indiaOffice.phone}</span>
+                        }`} style={{ fontFamily: 'var(--font-source-sans)' }}>{cardData.indiaOffice.phone}</span>
                       </motion.div>
 
                       <motion.div 
@@ -513,7 +503,7 @@ END:VCARD`;
                         </div>
                         <span className={`font-medium text-lg transition-colors duration-500 ${
                           isDarkMode ? 'text-purple-100' : 'text-sky-900'
-                        }`} style={{ fontFamily: "'Source Sans Pro', sans-serif" }}>{cardData.indiaOffice.email}</span>
+                        }`} style={{ fontFamily: 'var(--font-source-sans)' }}>{cardData.indiaOffice.email}</span>
                       </motion.div>
                     </div>
                   </motion.div>
@@ -544,7 +534,7 @@ END:VCARD`;
                       </div>
                       <h3 className={`text-xl font-bold transition-colors duration-500 ${
                         isDarkMode ? 'text-purple-100' : 'text-sky-900'
-                      }`} style={{ fontFamily: "'Crimson Text', serif" }}>
+                      }`} style={{ fontFamily: 'var(--font-crimson-text)' }}>
                         {cardData.usaOffice.title}
                       </h3>
                     </div>
@@ -553,12 +543,12 @@ END:VCARD`;
                       <div>
                         <p className={`text-lg font-semibold mb-2 transition-colors duration-500 ${
                           isDarkMode ? 'text-purple-200' : 'text-sky-800'
-                        }`} style={{ fontFamily: "'Crimson Text', serif" }}>
+                        }`} style={{ fontFamily: 'var(--font-crimson-text)' }}>
                           {cardData.usaOffice.cathedral}
                         </p>
                         <p className={`mb-4 transition-colors duration-500 ${
                           isDarkMode ? 'text-gray-300' : 'text-sky-700'
-                        }`} style={{ fontFamily: "'Source Sans Pro', sans-serif" }}>{cardData.usaOffice.address}</p>
+                        }`} style={{ fontFamily: 'var(--font-source-sans)' }}>{cardData.usaOffice.address}</p>
                         
                         <motion.button
                           onClick={() => openGoogleMaps(`${cardData.usaOffice.cathedral}, ${cardData.usaOffice.address}`)}
@@ -595,7 +585,7 @@ END:VCARD`;
                         </div>
                         <span className={`font-medium text-lg transition-colors duration-500 ${
                           isDarkMode ? 'text-purple-100' : 'text-sky-900'
-                        }`} style={{ fontFamily: "'Source Sans Pro', sans-serif" }}>{cardData.usaOffice.phone}</span>
+                        }`} style={{ fontFamily: 'var(--font-source-sans)' }}>{cardData.usaOffice.phone}</span>
                       </motion.div>
                     </div>
                   </motion.div>
@@ -615,7 +605,7 @@ END:VCARD`;
                         ? 'bg-gradient-to-r from-purple-500 to-violet-600 hover:from-purple-400 hover:to-violet-500' 
                         : 'bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-400 hover:to-indigo-500'
                     }`}
-                    style={{ fontFamily: "'Source Sans Pro', sans-serif" }}
+                    style={{ fontFamily: 'var(--font-source-sans)' }}
                     whileHover={{ 
                       scale: 1.02, 
                       y: -2,
@@ -639,7 +629,7 @@ END:VCARD`;
                         ? 'bg-gradient-to-r from-violet-500 to-purple-600 hover:from-violet-400 hover:to-purple-500' 
                         : 'bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400'
                     }`}
-                    style={{ fontFamily: "'Source Sans Pro', sans-serif" }}
+                    style={{ fontFamily: 'var(--font-source-sans)' }}
                     whileHover={{ 
                       scale: 1.02, 
                       y: -2,
@@ -668,7 +658,7 @@ END:VCARD`;
                 >
                   <h3 className={`text-2xl font-bold mb-6 text-center transition-colors duration-500 ${
                     isDarkMode ? 'text-purple-100' : 'text-sky-900'
-                  }`} style={{ fontFamily: "'Crimson Text', serif" }}>Share This Card</h3>
+                  }`} style={{ fontFamily: 'var(--font-crimson-text)' }}>Share This Card</h3>
                   
                   {/* Phone Number Input */}
                   <div className="mb-6">
@@ -699,7 +689,7 @@ END:VCARD`;
                       whileTap={{ scale: 0.95 }}
                     >
                       <MessageCircle className="w-6 h-6 mb-2 group-hover:animate-bounce-gentle" />
-                      <span className="text-sm font-medium" style={{ fontFamily: "'Source Sans Pro', sans-serif" }}>WhatsApp</span>
+                      <span className="text-sm font-medium" style={{ fontFamily: 'var(--font-source-sans)' }}>WhatsApp</span>
                     </motion.button>
 
                     <motion.button
@@ -709,7 +699,7 @@ END:VCARD`;
                       whileTap={{ scale: 0.95 }}
                     >
                       <Phone className="w-6 h-6 mb-2 group-hover:animate-bounce-gentle" />
-                      <span className="text-sm font-medium" style={{ fontFamily: "'Source Sans Pro', sans-serif" }}>SMS</span>
+                      <span className="text-sm font-medium" style={{ fontFamily: 'var(--font-source-sans)' }}>SMS</span>
                     </motion.button>
 
                     <motion.button
@@ -719,7 +709,7 @@ END:VCARD`;
                       whileTap={{ scale: 0.95 }}
                     >
                       <Instagram className="w-6 h-6 mb-2 group-hover:animate-bounce-gentle" />
-                      <span className="text-sm font-medium" style={{ fontFamily: "'Source Sans Pro', sans-serif" }}>Instagram</span>
+                      <span className="text-sm font-medium" style={{ fontFamily: 'var(--font-source-sans)' }}>Instagram</span>
                     </motion.button>
 
                     <motion.button
@@ -729,7 +719,7 @@ END:VCARD`;
                       whileTap={{ scale: 0.95 }}
                     >
                       <Copy className="w-6 h-6 mb-2 group-hover:animate-bounce-gentle" />
-                      <span className="text-sm font-medium" style={{ fontFamily: "'Source Sans Pro', sans-serif" }}>Copy Link</span>
+                      <span className="text-sm font-medium" style={{ fontFamily: 'var(--font-source-sans)' }}>Copy Link</span>
                     </motion.button>
                   </div>
 
