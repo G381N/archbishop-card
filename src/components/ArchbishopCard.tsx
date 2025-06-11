@@ -108,7 +108,7 @@ END:VCARD`;
   };
 
   const shareViaWhatsApp = () => {
-    const message = `Meet ${cardData.name} - ${cardData.title}. View his digital business card: ${currentUrl}`;
+    const message = `Meet ${cardData.name} - ${cardData.title}. View my digital business card: ${currentUrl}`;
     const targetNumber = phoneNumber || '';
     const whatsappUrl = `https://wa.me/${targetNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
