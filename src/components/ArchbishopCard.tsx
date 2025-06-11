@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 import { 
-  Mail, 
   Phone, 
   MapPin, 
   UserPlus,
@@ -331,16 +331,20 @@ END:VCARD`;
                   variants={itemVariants}
                 >
                   <div className="flex items-center justify-center gap-4">
-                    <img 
+                    <Image 
                       src="/logo1.jpeg" 
                       alt="Logo 1" 
+                      width={64}
+                      height={64}
                       className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover shadow-lg"
                     />
                     <span className="block md:hidden">†† MAR ILIOS YOHANAN KURIAKOSE ††</span>
                     <span className="hidden md:block">{cardData.name}</span>
-                    <img 
+                    <Image 
                       src="/logo2.png" 
                       alt="Logo 2" 
+                      width={64}
+                      height={64}
                       className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover shadow-lg"
                     />
                   </div>
