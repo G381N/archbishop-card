@@ -313,18 +313,8 @@ END:VCARD`;
                 className="relative z-10 px-3 md:px-6 pb-3 md:pb-4 pt-3 md:pt-4 text-center"
                 variants={itemVariants}
               >
-                <motion.h2 
-                  className={`text-xs md:text-sm font-medium mb-2 tracking-widest uppercase transition-colors duration-500 ${
-                    isDarkMode ? 'text-purple-300' : 'text-sky-700'
-                  }`}
-                  style={{ fontFamily: 'var(--font-source-sans)' }}
-                  variants={itemVariants}
-                >
-                  {cardData.organization}
-                </motion.h2>
-                
                 <motion.h1 
-                  className={`text-xl md:text-2xl lg:text-3xl font-bold mb-2 leading-tight transition-colors duration-500 ${
+                  className={`text-xl md:text-2xl lg:text-3xl font-bold mb-4 leading-tight transition-colors duration-500 ${
                     isDarkMode ? 'text-purple-100' : 'text-sky-900'
                   }`}
                   style={{ fontFamily: 'var(--font-crimson-text)' }}
@@ -338,8 +328,9 @@ END:VCARD`;
                       height={64}
                       className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover shadow-lg"
                     />
-                    <span className="block md:hidden">†† MAR ILIOS YOHANAN KURIAKOSE ††</span>
-                    <span className="hidden md:block">{cardData.name}</span>
+                    <span className="font-bold uppercase tracking-wide">
+                      {cardData.organization}
+                    </span>
                     <Image 
                       src="/logo2.png" 
                       alt="Logo 2" 
@@ -350,39 +341,20 @@ END:VCARD`;
                   </div>
                 </motion.h1>
                 
-                <motion.p 
-                  className={`text-sm md:text-base mb-2 transition-colors duration-500 ${
+                <motion.div 
+                  className={`text-sm md:text-base space-y-1 transition-colors duration-500 ${
                     isDarkMode ? 'text-gray-300' : 'text-sky-700'
                   }`}
                   style={{ fontFamily: 'var(--font-source-sans)' }}
                   variants={itemVariants}
                 >
-                  {cardData.qualifications}
-                </motion.p>
-                
-                <motion.p 
-                  className={`text-base md:text-lg font-semibold transition-colors duration-500 ${
+                  <p className="block md:hidden">†† MAR ILIOS YOHANAN KURIAKOSE ††</p>
+                  <p className="hidden md:block">{cardData.name}</p>
+                  <p>{cardData.qualifications}</p>
+                  <p className={`font-medium ${
                     isDarkMode ? 'text-yellow-400' : 'text-amber-600'
-                  }`}
-                  style={{ fontFamily: 'var(--font-crimson-text)' }}
-                  variants={itemVariants}
-                  animate={{
-                    textShadow: isDarkMode 
-                      ? [
-                          "0 0 6px rgba(251, 191, 36, 0.3)",
-                          "0 0 12px rgba(251, 191, 36, 0.5)",
-                          "0 0 6px rgba(251, 191, 36, 0.3)"
-                        ]
-                      : [
-                          "0 0 6px rgba(245, 158, 11, 0.3)",
-                          "0 0 12px rgba(245, 158, 11, 0.5)",
-                          "0 0 6px rgba(245, 158, 11, 0.3)"
-                        ]
-                  }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  {cardData.title}
-                </motion.p>
+                  }`}>{cardData.title}</p>
+                </motion.div>
               </motion.div>
 
               {/* Action Buttons - All Screens */}
@@ -551,6 +523,28 @@ END:VCARD`;
                           isDarkMode ? 'text-purple-100' : 'text-sky-900'
                         }`} style={{ fontFamily: 'var(--font-source-sans)' }}>{cardData.indiaOffice.phone}</span>
                       </motion.div>
+
+                      <motion.div 
+                        className={`flex items-center cursor-pointer p-2 rounded-lg transition-colors ${
+                          isDarkMode 
+                            ? 'hover:bg-gray-600/50' 
+                            : 'hover:bg-blue-100/50'
+                        }`}
+                        onClick={() => window.open('https://archbishop.ecccindia.org/', '_blank')}
+                        whileHover={{ x: 5 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <div className={`w-6 h-6 rounded-full flex items-center justify-center mr-2 shadow-md ${
+                          isDarkMode 
+                            ? 'bg-gradient-to-r from-emerald-500 to-teal-600' 
+                            : 'bg-gradient-to-r from-green-500 to-emerald-600'
+                        }`}>
+                          <Globe className="w-3 h-3 text-white" />
+                        </div>
+                        <span className={`font-medium text-xs md:text-sm transition-colors duration-500 ${
+                          isDarkMode ? 'text-purple-100' : 'text-sky-900'
+                        }`} style={{ fontFamily: 'var(--font-source-sans)' }}>Visit Website</span>
+                      </motion.div>
                     </div>
                   </motion.div>
                   
@@ -632,6 +626,28 @@ END:VCARD`;
                         <span className={`font-medium text-xs md:text-sm transition-colors duration-500 ${
                           isDarkMode ? 'text-purple-100' : 'text-sky-900'
                         }`} style={{ fontFamily: 'var(--font-source-sans)' }}>{cardData.usaOffice.phone}</span>
+                      </motion.div>
+
+                      <motion.div 
+                        className={`flex items-center cursor-pointer p-2 rounded-lg transition-colors ${
+                          isDarkMode 
+                            ? 'hover:bg-gray-600/50' 
+                            : 'hover:bg-blue-100/50'
+                        }`}
+                        onClick={() => window.open('https://archbishop.ecccindia.org/', '_blank')}
+                        whileHover={{ x: 5 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <div className={`w-6 h-6 rounded-full flex items-center justify-center mr-2 shadow-md ${
+                          isDarkMode 
+                            ? 'bg-gradient-to-r from-emerald-500 to-teal-600' 
+                            : 'bg-gradient-to-r from-green-500 to-emerald-600'
+                        }`}>
+                          <Globe className="w-3 h-3 text-white" />
+                        </div>
+                        <span className={`font-medium text-xs md:text-sm transition-colors duration-500 ${
+                          isDarkMode ? 'text-purple-100' : 'text-sky-900'
+                        }`} style={{ fontFamily: 'var(--font-source-sans)' }}>Visit Website</span>
                       </motion.div>
                     </div>
                   </motion.div>
