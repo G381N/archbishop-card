@@ -273,17 +273,17 @@ END:VCARD`;
           ))}
         </div>
 
-        <div className="relative z-10 flex items-center justify-center min-h-screen p-1 md:p-3">
+        <div className="relative z-10 flex items-center justify-center min-h-screen p-2 md:p-3">
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="w-full max-w-3xl"
+            className="w-full max-w-sm md:max-w-3xl"
           >
             {/* Main Card */}
             <motion.div
               variants={cardVariants}
-              className={`backdrop-blur-xl rounded-xl md:rounded-2xl shadow-2xl border overflow-hidden relative transition-all duration-500 ${
+              className={`backdrop-blur-xl rounded-2xl md:rounded-2xl shadow-2xl border overflow-hidden relative transition-all duration-500 ${
                 isDarkMode 
                   ? 'bg-gray-800/90 border-gray-600/50' 
                   : 'bg-white/90 border-sky-200/50'
@@ -302,7 +302,7 @@ END:VCARD`;
               transition={{ duration: 0.4, ease: "easeOut" }}
             >
               {/* Glow overlay */}
-              <div className={`absolute inset-0 backdrop-blur-sm rounded-xl md:rounded-2xl ${
+              <div className={`absolute inset-0 backdrop-blur-sm rounded-2xl md:rounded-2xl ${
                 isDarkMode 
                   ? 'bg-gradient-to-br from-gray-800/80 via-gray-700/60 to-gray-800/80' 
                   : 'bg-gradient-to-br from-sky-50/80 via-white/60 to-blue-50/80'
@@ -310,62 +310,62 @@ END:VCARD`;
               
               {/* Header Section */}
               <motion.div 
-                className="relative z-10 px-3 md:px-6 pb-3 md:pb-4 pt-3 md:pt-4 text-center"
+                className="relative z-10 px-4 md:px-6 pb-4 md:pb-4 pt-4 md:pt-4 text-center"
                 variants={itemVariants}
               >
                 <motion.h1 
-                  className={`text-xl md:text-2xl lg:text-3xl font-bold mb-4 leading-tight transition-colors duration-500 ${
+                  className={`text-lg md:text-2xl lg:text-3xl font-bold mb-3 md:mb-4 leading-tight transition-colors duration-500 ${
                     isDarkMode ? 'text-purple-100' : 'text-sky-900'
                   }`}
                   style={{ fontFamily: 'var(--font-crimson-text)' }}
                   variants={itemVariants}
                 >
-                  <div className="flex items-center justify-center gap-4">
+                  <div className="flex items-center justify-center gap-2 md:gap-4">
                     <Image 
                       src="/logo1.jpeg" 
                       alt="Logo 1" 
-                      width={64}
-                      height={64}
-                      className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover shadow-lg"
+                      width={48}
+                      height={48}
+                      className="w-12 h-12 md:w-20 md:h-20 rounded-full object-cover shadow-lg flex-shrink-0"
                     />
-                    <span className="font-bold uppercase tracking-wide">
+                    <span className="font-bold uppercase tracking-wide text-center leading-tight">
                       {cardData.organization}
                     </span>
                     <Image 
                       src="/logo2.png" 
                       alt="Logo 2" 
-                      width={64}
-                      height={64}
-                      className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover shadow-lg"
+                      width={48}
+                      height={48}
+                      className="w-12 h-12 md:w-20 md:h-20 rounded-full object-cover shadow-lg flex-shrink-0"
                     />
                   </div>
                 </motion.h1>
                 
                 <motion.div 
-                  className={`text-sm md:text-base space-y-1 transition-colors duration-500 ${
+                  className={`text-xs md:text-base space-y-1 md:space-y-1 transition-colors duration-500 ${
                     isDarkMode ? 'text-gray-300' : 'text-sky-700'
                   }`}
                   style={{ fontFamily: 'var(--font-source-sans)' }}
                   variants={itemVariants}
                 >
-                  <p className="block md:hidden">†† MAR ILIOS YOHANAN KURIAKOSE ††</p>
+                  <p className="block md:hidden font-medium">†† MAR ILIOS YOHANAN KURIAKOSE ††</p>
                   <p className="hidden md:block">{cardData.name}</p>
-                  <p>{cardData.qualifications}</p>
+                  <p className="leading-tight">{cardData.qualifications}</p>
                   <p className={`font-medium ${
                     isDarkMode ? 'text-yellow-400' : 'text-amber-600'
                   }`}>{cardData.title}</p>
                 </motion.div>
               </motion.div>
 
-              {/* Action Buttons - All Screens */}
+              {/* Action Buttons - Mobile Optimized */}
               <motion.div 
-                className="relative z-10 px-3 md:px-6 pb-3 md:pb-4"
+                className="relative z-10 px-4 md:px-6 pb-4 md:pb-4"
                 variants={itemVariants}
               >
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4">
                   <motion.button
                     onClick={addToContacts}
-                    className={`group relative overflow-hidden text-white py-2 px-4 rounded-lg font-semibold text-sm shadow-lg hover:shadow-xl transition-all duration-300 ${
+                    className={`group relative overflow-hidden text-white py-3 md:py-2 px-4 rounded-xl md:rounded-lg font-semibold text-sm shadow-lg hover:shadow-xl transition-all duration-300 ${
                       isDarkMode 
                         ? 'bg-gradient-to-r from-purple-500 to-violet-600 hover:from-purple-400 hover:to-violet-500' 
                         : 'bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-400 hover:to-indigo-500'
@@ -389,7 +389,7 @@ END:VCARD`;
 
                   <motion.button
                     onClick={() => setIsQRModalOpen(true)}
-                    className={`group relative overflow-hidden text-white py-2 px-4 rounded-lg font-semibold text-sm shadow-lg hover:shadow-xl transition-all duration-300 ${
+                    className={`group relative overflow-hidden text-white py-3 md:py-2 px-4 rounded-xl md:rounded-lg font-semibold text-sm shadow-lg hover:shadow-xl transition-all duration-300 ${
                       isDarkMode 
                         ? 'bg-gradient-to-r from-violet-500 to-purple-600 hover:from-violet-400 hover:to-purple-500' 
                         : 'bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400'
@@ -413,7 +413,7 @@ END:VCARD`;
 
                   <motion.button
                     onClick={() => setIsShareModalOpen(true)}
-                    className={`group relative overflow-hidden text-white py-2 px-4 rounded-lg font-semibold text-sm shadow-lg hover:shadow-xl transition-all duration-300 ${
+                    className={`group relative overflow-hidden text-white py-3 md:py-2 px-4 rounded-xl md:rounded-lg font-semibold text-sm shadow-lg hover:shadow-xl transition-all duration-300 ${
                       isDarkMode 
                         ? 'bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500' 
                         : 'bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500'
@@ -437,16 +437,16 @@ END:VCARD`;
                 </div>
               </motion.div>
 
-              {/* Office Information */}
+              {/* Office Information - Mobile Optimized */}
               <motion.div 
-                className="relative z-10 px-3 md:px-6 py-3 md:py-4"
+                className="relative z-10 px-4 md:px-6 py-4 md:py-4"
                 variants={itemVariants}
               >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-4">
                   
                   {/* India Office */}
                   <motion.div 
-                    className={`group backdrop-blur-sm rounded-lg p-3 md:p-4 border transition-all duration-500 ${
+                    className={`group backdrop-blur-sm rounded-xl md:rounded-lg p-4 md:p-4 border transition-all duration-500 ${
                       isDarkMode 
                         ? 'bg-gray-700/60 border-gray-600/50 hover:bg-gray-700/80' 
                         : 'bg-sky-50/60 border-sky-200/50 hover:bg-sky-50/80'
@@ -461,12 +461,12 @@ END:VCARD`;
                     }}
                   >
                     <div className="flex items-center mb-3">
-                      <div className={`w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center mr-2 shadow-lg ${
+                      <div className={`w-8 h-8 md:w-8 md:h-8 rounded-full flex items-center justify-center mr-3 shadow-lg ${
                         isDarkMode 
                           ? 'bg-gradient-to-r from-purple-500 to-violet-600' 
                           : 'bg-gradient-to-r from-sky-500 to-blue-600'
                       }`}>
-                        <Globe className="w-3 h-3 md:w-4 md:h-4 text-white" />
+                        <Globe className="w-4 h-4 md:w-4 md:h-4 text-white" />
                       </div>
                       <h3 className={`text-base md:text-lg font-bold transition-colors duration-500 ${
                         isDarkMode ? 'text-purple-100' : 'text-sky-900'
@@ -475,14 +475,14 @@ END:VCARD`;
                       </h3>
                     </div>
                     
-                    <div className="space-y-2">
+                    <div className="space-y-3">
                       <div>
                         <p className={`text-sm md:text-base font-semibold mb-1 transition-colors duration-500 ${
                           isDarkMode ? 'text-purple-200' : 'text-sky-800'
                         }`} style={{ fontFamily: 'var(--font-crimson-text)' }}>
                           {cardData.indiaOffice.cathedral}
                         </p>
-                        <p className={`mb-2 text-xs md:text-sm transition-colors duration-500 ${
+                        <p className={`mb-3 text-xs md:text-sm transition-colors duration-500 leading-relaxed ${
                           isDarkMode ? 'text-gray-300' : 'text-sky-700'
                         }`} style={{ fontFamily: 'var(--font-source-sans)' }}>{cardData.indiaOffice.address}</p>
                         
@@ -503,7 +503,7 @@ END:VCARD`;
                       </div>
 
                       <motion.div 
-                        className={`flex items-center cursor-pointer p-2 rounded-lg transition-colors ${
+                        className={`flex items-center cursor-pointer p-3 md:p-2 rounded-xl md:rounded-lg transition-colors ${
                           isDarkMode 
                             ? 'hover:bg-gray-600/50' 
                             : 'hover:bg-blue-100/50'
@@ -512,20 +512,20 @@ END:VCARD`;
                         whileHover={{ x: 5 }}
                         whileTap={{ scale: 0.95 }}
                       >
-                        <div className={`w-6 h-6 rounded-full flex items-center justify-center mr-2 shadow-md ${
+                        <div className={`w-8 h-8 md:w-6 md:h-6 rounded-full flex items-center justify-center mr-3 md:mr-2 shadow-md ${
                           isDarkMode 
                             ? 'bg-gradient-to-r from-purple-500 to-violet-600' 
                             : 'bg-gradient-to-r from-sky-500 to-blue-600'
                         }`}>
-                          <Phone className="w-3 h-3 text-white" />
+                          <Phone className="w-4 h-4 md:w-3 md:h-3 text-white" />
                         </div>
-                        <span className={`font-medium text-xs md:text-sm transition-colors duration-500 ${
+                        <span className={`font-medium text-sm md:text-sm transition-colors duration-500 ${
                           isDarkMode ? 'text-purple-100' : 'text-sky-900'
                         }`} style={{ fontFamily: 'var(--font-source-sans)' }}>{cardData.indiaOffice.phone}</span>
                       </motion.div>
 
                       <motion.div 
-                        className={`flex items-center cursor-pointer p-2 rounded-lg transition-colors ${
+                        className={`flex items-center cursor-pointer p-3 md:p-2 rounded-xl md:rounded-lg transition-colors ${
                           isDarkMode 
                             ? 'hover:bg-gray-600/50' 
                             : 'hover:bg-blue-100/50'
@@ -534,14 +534,14 @@ END:VCARD`;
                         whileHover={{ x: 5 }}
                         whileTap={{ scale: 0.95 }}
                       >
-                        <div className={`w-6 h-6 rounded-full flex items-center justify-center mr-2 shadow-md ${
+                        <div className={`w-8 h-8 md:w-6 md:h-6 rounded-full flex items-center justify-center mr-3 md:mr-2 shadow-md ${
                           isDarkMode 
                             ? 'bg-gradient-to-r from-emerald-500 to-teal-600' 
                             : 'bg-gradient-to-r from-green-500 to-emerald-600'
                         }`}>
-                          <Globe className="w-3 h-3 text-white" />
+                          <Globe className="w-4 h-4 md:w-3 md:h-3 text-white" />
                         </div>
-                        <span className={`font-medium text-xs md:text-sm transition-colors duration-500 ${
+                        <span className={`font-medium text-sm md:text-sm transition-colors duration-500 ${
                           isDarkMode ? 'text-purple-100' : 'text-sky-900'
                         }`} style={{ fontFamily: 'var(--font-source-sans)' }}>Visit Website</span>
                       </motion.div>
@@ -550,7 +550,7 @@ END:VCARD`;
                   
                   {/* USA Office */}
                   <motion.div 
-                    className={`group backdrop-blur-sm rounded-lg p-3 md:p-4 border transition-all duration-500 ${
+                    className={`group backdrop-blur-sm rounded-xl md:rounded-lg p-4 md:p-4 border transition-all duration-500 ${
                       isDarkMode 
                         ? 'bg-gray-700/60 border-gray-600/50 hover:bg-gray-700/80' 
                         : 'bg-sky-50/60 border-sky-200/50 hover:bg-sky-50/80'
@@ -565,12 +565,12 @@ END:VCARD`;
                     }}
                   >
                     <div className="flex items-center mb-3">
-                      <div className={`w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center mr-2 shadow-lg ${
+                      <div className={`w-8 h-8 md:w-8 md:h-8 rounded-full flex items-center justify-center mr-3 shadow-lg ${
                         isDarkMode 
                           ? 'bg-gradient-to-r from-purple-500 to-violet-600' 
                           : 'bg-gradient-to-r from-sky-500 to-blue-600'
                       }`}>
-                        <Globe className="w-3 h-3 md:w-4 md:h-4 text-white" />
+                        <Globe className="w-4 h-4 md:w-4 md:h-4 text-white" />
                       </div>
                       <h3 className={`text-base md:text-lg font-bold transition-colors duration-500 ${
                         isDarkMode ? 'text-purple-100' : 'text-sky-900'
@@ -579,14 +579,14 @@ END:VCARD`;
                       </h3>
                     </div>
                     
-                    <div className="space-y-2">
+                    <div className="space-y-3">
                       <div>
                         <p className={`text-sm md:text-base font-semibold mb-1 transition-colors duration-500 ${
                           isDarkMode ? 'text-purple-200' : 'text-sky-800'
                         }`} style={{ fontFamily: 'var(--font-crimson-text)' }}>
                           {cardData.usaOffice.cathedral}
                         </p>
-                        <p className={`mb-2 text-xs md:text-sm transition-colors duration-500 ${
+                        <p className={`mb-3 text-xs md:text-sm transition-colors duration-500 leading-relaxed ${
                           isDarkMode ? 'text-gray-300' : 'text-sky-700'
                         }`} style={{ fontFamily: 'var(--font-source-sans)' }}>{cardData.usaOffice.address}</p>
                         
@@ -607,7 +607,7 @@ END:VCARD`;
                       </div>
 
                       <motion.div 
-                        className={`flex items-center cursor-pointer p-2 rounded-lg transition-colors ${
+                        className={`flex items-center cursor-pointer p-3 md:p-2 rounded-xl md:rounded-lg transition-colors ${
                           isDarkMode 
                             ? 'hover:bg-gray-600/50' 
                             : 'hover:bg-blue-100/50'
@@ -616,20 +616,20 @@ END:VCARD`;
                         whileHover={{ x: 5 }}
                         whileTap={{ scale: 0.95 }}
                       >
-                        <div className={`w-6 h-6 rounded-full flex items-center justify-center mr-2 shadow-md ${
+                        <div className={`w-8 h-8 md:w-6 md:h-6 rounded-full flex items-center justify-center mr-3 md:mr-2 shadow-md ${
                           isDarkMode 
                             ? 'bg-gradient-to-r from-purple-500 to-violet-600' 
                             : 'bg-gradient-to-r from-sky-500 to-blue-600'
                         }`}>
-                          <Phone className="w-3 h-3 text-white" />
+                          <Phone className="w-4 h-4 md:w-3 md:h-3 text-white" />
                         </div>
-                        <span className={`font-medium text-xs md:text-sm transition-colors duration-500 ${
+                        <span className={`font-medium text-sm md:text-sm transition-colors duration-500 ${
                           isDarkMode ? 'text-purple-100' : 'text-sky-900'
                         }`} style={{ fontFamily: 'var(--font-source-sans)' }}>{cardData.usaOffice.phone}</span>
                       </motion.div>
 
                       <motion.div 
-                        className={`flex items-center cursor-pointer p-2 rounded-lg transition-colors ${
+                        className={`flex items-center cursor-pointer p-3 md:p-2 rounded-xl md:rounded-lg transition-colors ${
                           isDarkMode 
                             ? 'hover:bg-gray-600/50' 
                             : 'hover:bg-blue-100/50'
@@ -638,14 +638,14 @@ END:VCARD`;
                         whileHover={{ x: 5 }}
                         whileTap={{ scale: 0.95 }}
                       >
-                        <div className={`w-6 h-6 rounded-full flex items-center justify-center mr-2 shadow-md ${
+                        <div className={`w-8 h-8 md:w-6 md:h-6 rounded-full flex items-center justify-center mr-3 md:mr-2 shadow-md ${
                           isDarkMode 
                             ? 'bg-gradient-to-r from-emerald-500 to-teal-600' 
                             : 'bg-gradient-to-r from-green-500 to-emerald-600'
                         }`}>
-                          <Globe className="w-3 h-3 text-white" />
+                          <Globe className="w-4 h-4 md:w-3 md:h-3 text-white" />
                         </div>
-                        <span className={`font-medium text-xs md:text-sm transition-colors duration-500 ${
+                        <span className={`font-medium text-sm md:text-sm transition-colors duration-500 ${
                           isDarkMode ? 'text-purple-100' : 'text-sky-900'
                         }`} style={{ fontFamily: 'var(--font-source-sans)' }}>Visit Website</span>
                       </motion.div>
