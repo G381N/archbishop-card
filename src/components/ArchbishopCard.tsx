@@ -530,7 +530,7 @@ END:VCARD`;
                             ? 'hover:bg-gray-600/50' 
                             : 'hover:bg-blue-100/50'
                         }`}
-                        onClick={() => window.open('https://archbishop.ecccindia.org/', '_blank')}
+                        onClick={() => window.open('https://www.ecccindia.org', '_blank')}
                         whileHover={{ x: 5 }}
                         whileTap={{ scale: 0.95 }}
                       >
@@ -634,7 +634,7 @@ END:VCARD`;
                             ? 'hover:bg-gray-600/50' 
                             : 'hover:bg-blue-100/50'
                         }`}
-                        onClick={() => window.open('https://archbishop.ecccindia.org/', '_blank')}
+                        onClick={() => window.open('https://www.cathedralofstanthonydetroit.org/', '_blank')}
                         whileHover={{ x: 5 }}
                         whileTap={{ scale: 0.95 }}
                       >
