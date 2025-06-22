@@ -342,16 +342,16 @@ END:VCARD`;
                 </motion.h1>
                 
                 <motion.div 
-                  className={`text-xs md:text-base space-y-1 md:space-y-1 transition-colors duration-500 ${
+                  className={`flex flex-col gap-px text-xs md:text-base transition-colors duration-500 ${
                     isDarkMode ? 'text-gray-300' : 'text-sky-700'
                   }`}
                   style={{ fontFamily: 'var(--font-source-sans)' }}
                   variants={itemVariants}
                 >
-                  <p className="block md:hidden font-medium">†† MAR ILIOS YOHANAN KURIAKOSE ††</p>
-                  <p className="hidden md:block">{cardData.name}</p>
-                  <p className="leading-tight">{cardData.qualifications}</p>
-                  <p className={`font-medium ${
+                  <p className="block md:hidden font-medium text-base md:text-xl">{cardData.name}</p>
+                  <p className="hidden md:block text-xl md:text-2xl">{cardData.name}</p>
+                  <p className="leading-tight text-xs md:text-xs">{cardData.qualifications}</p>
+                  <p className={`font-medium text-sm md:text-base ${
                     isDarkMode ? 'text-yellow-400' : 'text-amber-600'
                   }`}>{cardData.title}</p>
                 </motion.div>
